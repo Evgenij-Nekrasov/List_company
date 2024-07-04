@@ -41,7 +41,6 @@ export const companiesSlice = createSlice({
       },
       startEditing: (state, action) => {
          const item = state.find((company) => company.id === action.payload);
-
          if (item) {
             item.isEditing = true;
          }

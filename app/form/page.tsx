@@ -14,6 +14,7 @@ export default function Form() {
    const [companyData, setCompanyData] = useState<TCompanyState>({
       nameCompany: "",
       address: "",
+      id: "",
    });
 
    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,7 +27,7 @@ export default function Form() {
          return;
       } else {
          dispatch(addCompany(companyData.nameCompany, companyData.address));
-         setCompanyData({ nameCompany: "", address: "" });
+         setCompanyData({ nameCompany: "", address: "", id: "" });
       }
    };
 
@@ -36,7 +37,7 @@ export default function Form() {
 
    return (
       <>
-         <div className="flex justify-center items-start mt-5 h-screen w-2/3 bg-gray-400">
+         <div className="flex justify-center items-start mt-5 h-screen w-1/2 bg-gray-400">
             <form
                onSubmit={handleSubmit}
                className="[&>*]:mb-3 w-full max-w-xs bg-white p-8 rounded shadow-md"

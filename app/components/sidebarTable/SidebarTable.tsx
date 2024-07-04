@@ -39,7 +39,7 @@ export function SidebarTable() {
       dispatch(stopEditing(id));
    };
 
-   const handleChange = (
+   const handleChangeInput = (
       id: string,
       field: keyof TCompanyState,
       value: string
@@ -48,7 +48,7 @@ export function SidebarTable() {
    };
 
    return (
-      <div className="flex flex-col max-w-[600px] bg-white h-[100dvh] w-2/6">
+      <div className="flex flex-col  bg-white min-h-max w-1/2">
          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                <div className="overflow-hidden">
@@ -62,7 +62,10 @@ export function SidebarTable() {
                            <th scope="col" className="px-6 py-4">
                               Address
                            </th>
-                           <th scope="col" className="px-6 py-4">
+                           <th
+                              scope="col"
+                              className="px-6 py-4 flex items-center gap-x-1"
+                           >
                               <label htmlFor="select">Select all </label>
                               <input
                                  type="checkbox"
@@ -91,24 +94,69 @@ export function SidebarTable() {
                                        : "bg-white"
                                  }`}
                               >
-                                 <td className="whitespace-nowrap px-6 py-4">
-                                    {company.nameCompany}
+                                 <td
+                                    className="whitespace-nowrap px-6 py-4"
+                                    onClick={() =>
+                                       handleStartEditing(company.id)
+                                    }
+                                 >
+                                    {company.isEditing ? (
+                                       <input
+                                          type="text"
+                                          value={company.nameCompany}
+                                          onChange={(e) =>
+                                             handleChangeInput(
+                                                company.id,
+                                                "nameCompany",
+                                                e.target.value
+                                             )
+                                          }
+                                          onBlur={() =>
+                                             handleStopEditing(company.id)
+                                          }
+                                          autoFocus
+                                       />
+                                    ) : (
+                                       company.nameCompany
+                                    )}
                                  </td>
-                                 <td className="whitespace-nowrap px-6 py-4">
-                                    {company.address}
+                                 <td
+                                    className="whitespace-nowrap px-6 py-4"
+                                    onClick={() =>
+                                       handleStartEditing(company.id)
+                                    }
+                                 >
+                                    {company.isEditing ? (
+                                       <input
+                                          type="text"
+                                          value={company.address}
+                                          onChange={(e) =>
+                                             handleChangeInput(
+                                                company.id,
+                                                "address",
+                                                e.target.value
+                                             )
+                                          }
+                                          onBlur={() =>
+                                             handleStopEditing(company.id)
+                                          }
+                                          autoFocus
+                                       />
+                                    ) : (
+                                       company.address
+                                    )}
                                  </td>
+
                                  <td className="whitespace-nowrap px-6 py-4">
                                     <input
                                        type="checkbox"
                                        onChange={() =>
-                                          company.id &&
                                           handleSelectElementById(company.id)
                                        }
                                     />
                                  </td>
                                  <div
                                     onClick={() =>
-                                       company.id &&
                                        handleDeleteCompany(company.id)
                                     }
                                     className="bg-gray-700 hover:bg-gray-900 text-white py-2 mt-2 mr-2 font-bold cursor-pointer text-center rounded transition-all duration-300"

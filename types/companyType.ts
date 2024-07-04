@@ -3,5 +3,5 @@ export type TCompanyState = {
    nameCompany: string;
    address: string;
    isEditing?: boolean;
-   id?: string;
+   id: string;
 };
