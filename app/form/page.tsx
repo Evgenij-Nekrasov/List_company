@@ -43,30 +43,26 @@ export default function Form() {
                className="[&>*]:mb-3 w-full max-w-xs bg-white p-8 rounded shadow-md"
             >
                <h2 className="mb-5 mt-10 text-center text-xl">New company</h2>
-               <label htmlFor="nameCompany">
-                  name*
-                  <input
-                     type="text"
-                     onChange={handleChange}
-                     value={companyData.nameCompany}
-                     name="nameCompany"
-                     id="nameCompany"
-                     placeholder="Enter company name"
-                  />
-               </label>
-               <label htmlFor="address">
-                  address*
-                  <input
-                     placeholder="Enter company address"
-                     type="text"
-                     onChange={handleChange}
-                     value={companyData.address}
-                     name="address"
-                     id="address"
-                  />
-               </label>
+               <label htmlFor="nameCompany">name*</label>
+               <input
+                  type="text"
+                  onChange={handleChange}
+                  value={companyData.nameCompany}
+                  name="nameCompany"
+                  id="nameCompany"
+                  placeholder="Enter company name"
+               />
+               <label htmlFor="address">address*</label>
+               <input
+                  placeholder="Enter company address"
+                  type="text"
+                  onChange={handleChange}
+                  value={companyData.address}
+                  name="address"
+                  id="address"
+               />
                <button type="submit">Create</button>
-               <Link href="http://localhost:3000/">
+               <Link href="https://list-company.vercel.app/">
                   <button type="button">Back</button>
                </Link>
             </form>

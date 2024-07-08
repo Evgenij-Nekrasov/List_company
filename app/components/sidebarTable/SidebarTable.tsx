@@ -48,7 +48,7 @@ export function SidebarTable() {
    };
 
    return (
-      <div className="flex flex-col  bg-white min-h-max w-1/2">
+      <div className="flex flex-col  bg-white h-[100dvh] w-1/2">
          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                <div className="overflow-hidden">
